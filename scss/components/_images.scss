@@ -1,0 +1,123 @@
+.img {
+  &__arma {
+    height: 50%;
+    padding-left: 5rem;
+    width: auto;
+    cursor: pointer;
+  }
+
+  &__avatar {
+    width: 10rem;
+    border-radius: 50%;
+    border: 1rem solid transparent;
+    outline: 1rem solid $color-primary;
+    margin-bottom: 2rem;
+  }
+
+  &__about {
+    width: 20vw;
+    position: absolute;
+    z-index: -1;
+    left: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__hands {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    &--top {
+      top: -5rem;
+    }
+
+    &--bottom {
+      bottom: -5rem;
+    }
+  }
+
+  &__people {
+    width: 30vw;
+    position: absolute;
+    left: 25%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  &__book-cover {
+    //height: 100%;
+    width: 120%;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+    //opacity: .3;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__book-preview {
+    height: 40vh;
+    width: 60%;
+    margin-top: 2rem;
+    top: 3rem;
+    border-radius: 2rem;
+  }
+
+  &__books-results {
+    margin: auto;
+    width: 60%;
+    cursor: pointer;
+    border-radius: 2rem;
+  }
+
+  &__address {
+    position: absolute;
+    width: 28vw;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 2;
+    pointer-events: none;
+    animation: opacity-contact 3s forwards ease-in;
+  }
+
+  &__book-detail {
+    position: absolute;
+    height: 100%;
+    @include absolute-center;
+    border-radius: 2rem;
+    pointer-events: none;
+  }
+
+  &__stat {
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+    pointer-events: none;
+    opacity: .6;
+
+    &--read {
+      width: 90%;
+      @include absolute-center-x;
+    }
+  }
+
+  &__svg {
+    width: 3rem;
+    height: 3rem;
+    filter: invert(32%) sepia(96%) saturate(1832%) hue-rotate(133deg)
+      brightness(98%) contrast(101%);
+  }
+}
+
+.icon {
+  width: 4rem;
+
+  &__fb {
+    filter: invert(37%) sepia(98%) saturate(1031%) hue-rotate(122deg)
+      brightness(92%) contrast(106%);
+  }
+}

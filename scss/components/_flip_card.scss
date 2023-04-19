@@ -1,0 +1,97 @@
+.flip-card {
+  width: 95%;
+  height: 45rem;
+  perspective: 1000px;
+  margin: auto;
+  border-radius: 2rem;
+  z-index: 2000;
+  border-radius: 2rem;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 2rem;
+    box-shadow: rgba(43, 43, 43, .2) 0 .5rem 1rem;
+  }
+
+  &__front,
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: $color-light-2;
+    border-radius: 2rem;
+  }
+
+  &__back {
+
+    h4 {
+      text-align: left;
+      font-size: $font-size-p;
+      line-height: 3rem;
+      width: 90%;
+      margin: auto;
+
+      span {
+        color: $color-primary;
+        font-size: $font-size-h4;
+        margin-right: 1rem;
+        display: block;
+
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+      }
+
+      &:first-child, 
+      &:nth-child(4) {
+        margin-top: 4rem;
+      }
+    }
+  }
+
+  &__back {
+    transform: rotateY(180deg);
+    display: block;
+  }
+
+  &__img {
+    @include absolute-center;
+    width: 80%;
+    border-radius: 2rem;
+  }
+  
+  &:hover &__inner {
+    transform: rotateY(180deg);
+    box-shadow: rgba(43, 43, 43, .1) 0 1rem 1rem;
+  }
+}
+.iceland {
+  background: url(../img/iceland.jpg) no-repeat center center/cover;
+}
+
+.slovenia {
+  background: url(../img/slovenia.jpg) no-repeat center center/cover;
+}
+
+.austria {
+  background: url(../img/austria.jpg) no-repeat center center/cover;
+}
+
+.iceland__back {
+  background: url(../img/iceland_back.jpg) no-repeat center center/cover;
+}
+
+.slovenia__back {
+  background: url(../img/slovenia_back.jpg) no-repeat center center/cover;
+}
+
+.austria__back {
+  background: url(../img/austria_back.jpg) no-repeat center center/cover;
+}

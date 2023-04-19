@@ -1,0 +1,21 @@
+extends base
+
+block append head
+  script(src=src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet')
+
+block content
+    main.main.main__contact
+        #map
+        img.img.img__address(src="/img/address.png")
+        .contact 
+            .contact__cont 
+                h3.contact__heading Adresa 
+                p.contact__paragraph Turany nad Ondavou 100
+                p.contact__paragraph 090 33 Turany nad Ondavou 
+            .contact__cont 
+                h3.contact__heading Email 
+                p.contact__paragraph kniznica.tno@gmail.com
+            .contact__cont 
+                h3.contact__heading Tel 
+                p.contact__paragraph 0915 123 456

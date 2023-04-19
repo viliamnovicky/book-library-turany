@@ -1,0 +1,12 @@
+extends base
+
+block content      
+    main.main.main__books
+        .books 
+            each book in books 
+                a.book(id = `${book.id}` href=`/${book.slug}`)
+                    img.img.img__book-cover(src=`${book.coverImage.startsWith("http") ? book.coverImage : "/img/books/" + book.coverImage}`, alt=`book ${book.name} ${book.author} `)
+                    .book__cont
+                        h3.book__name= book.name
+                        h4.book__author= book.author
+                    button.btn.btn__primary.btn__book-details detail

@@ -1,0 +1,126 @@
+.btn {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 14rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba($color-dark-1, 0.2);
+
+  &__primary {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  &__search-img {
+    width: 25rem;
+  }
+
+  &__close-modal {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 3rem;
+    z-index: 10;
+
+    &--books {
+      right: calc(10vw + 2rem) !important;
+      top: calc(10vh + 2rem) !important;
+    }
+
+    &--login {
+      right: calc(25vw + 2rem) !important;
+      top: calc(25vh + 2rem) !important;
+    }
+  }
+
+  &__book-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  &:hover {
+    box-shadow: 1rem 1rem 1rem rgba($color-dark-1, 0.1);
+  }
+
+  &:active {
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba($color-dark-1, 0.3);
+  }
+
+  &__social {
+    width: 4rem;
+  }
+
+  &__login,
+  &__logout {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  &__manual-search {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__login--confirm {
+    position: absolute;
+    left: 50%;
+    bottom: -6rem;
+    transform: translateX(-50%);
+  }
+
+  &__back {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: $color-white;
+    color: $color-primary;
+    font-size: $font-size-h2;
+    position: absolute;
+    top: 10%;
+    left: 2rem;
+    // display: grid;
+    // justify-content: center;
+    // align-items: center;
+    z-index: 10;
+  }
+
+  &__profile {
+    width: 100%;
+    margin: 2rem 0;
+    background: rgba($color-primary, .8);
+    color: $color-white;
+    height: 5rem;
+
+    &:hover,
+    &--active {
+      background: rgba($color-primary, 1);
+    }
+
+    &--active {
+      pointer-events: none;
+    }
+  }
+
+  &__sort {
+    background: $color-light-2;
+    color: $color-dark-1;
+  }
+}
+
+#btn__delete-book {
+  background: red;
+}

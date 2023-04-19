@@ -1,0 +1,43 @@
+extends base
+
+block content
+    main.main 
+        form.form.form__new-book
+            .form__cont
+                .form__group
+                    label.form__label(for="author") Meno autora 
+                    input#author.form__input(type="name", placeholder="Samo Chalúpka", required)
+                .form__group 
+                    label.form__label(for="name") Názov diela 
+                    input#name.form__input(type="name", placeholder="Mor ho!", required)
+                .form__group.hidden#manual-search 
+                    label.form__label(for="year") Dátum vydania 
+                    input#year.form__input(type="number", placeholder="1864")
+                    button.btn.btn__primary.btn__manual-search#option-year zadať manuálne
+                        
+                .form__group.hidden#manual-search 
+                    label.form__label(for="isbn") ISBN 
+                    input#isbn.form__input(type="text", placeholder="978-80-559-0338-5")
+                    button.btn.btn__primary.btn__manual-search#option-ISBN zadať manuálne
+                .form__group.hidden#manual-search 
+                    label.form__label(for="category") Žáner
+                    input#category.form__input(type="text", placeholder="Báseň")
+                .form__group.hidden#manual-search 
+                    label.form__label Obal
+                    button.btn.btn__primary.btn__search-img Vyberte obrázok
+                    button.btn.btn__primary.btn__manual-search#upload-cover-btn obrázok z pc
+                    input.hidden.hidden__no-space(type="file" id="uploadPhoto" name="filename")
+                    //input.hidden.hidden__no-space(type="submit")
+            .form__cont 
+                .form__group.form__group--search
+                    label.form__label.form__label--info Zadajte meno autora a názov diela, zvyšné údaje dohľadám za Vás. Ak sa mi to nepodarí, môžete doplniť manuálne aj zvyšné údaje.
+                    button#btn__search-book-data.btn.btn__primary vyhľadať 
+                .form__group.form__group--search.no-success.hidden
+                    label.form__label.form__label Nedarí sa Vám vo Vašom hľadaní? Zadajte údaje o knihe manuálne
+                    button#btn__manual-search.btn.btn__primary zadať manuálne
+            .form__cont 
+                img.img.img__book-preview.inactive(src="/img/morho.webp", alt="", srcset="")
+            .form__cont
+                #manual-search.form__group.form__group--search.form__group--save-book.hidden
+                    label.form__label Ak je všetko vporiadku, kliknutím uložíte údaje o knihe do databázy knižnice, údaje môžete kedykoľvek zmeniť alebo úplne vymazať.
+                    button#btn__save-book-data.btn.btn__primary uložiť 

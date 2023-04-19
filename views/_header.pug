@@ -1,0 +1,30 @@
+header.header 
+    img.img__arma(src="/img/erb.png", alt="logo obce")
+    h1.header__heading Knižnica Turany nad Ondavou
+    nav.nav 
+        if user && user.role === "admin"
+            a.nav__el(href="/databaza" id="databaza")  Naše knihy
+            a.nav__el(href="/nova-kniha" id="nova-kniha") Pridať knihu
+            a.nav__el(href="/admin" id="admin") Admin
+        else if user && user.role === "user"
+            a.nav__el(href="/databaza" id="databaza")  Naše knihy
+            a.nav__el(href="/kontakt" id="kontakt") Kontakt
+            a.nav__el(href="/profil" id="profil") Profil
+        else
+            a.nav__el(href="/databaza" id="databaza")  Naše knihy
+            a.nav__el(href="/kontakt" id="kontakt") Kontakt
+if currentUrl  === "/databaza"
+    .actions
+        .search 
+            .form.form__search-database 
+                label.form__label(for="database-author") Meno autora 
+                input.form__input(type="text" id="database-author")
+                label.form__label(for="database-name") Názov diela 
+                input.form__input(type="text" id="database-name")
+                button#btn__load-database.btn.btn__primary vyhľadať 
+        .sort 
+            button.btn.btn__sort#name.sort__active názov diela
+            button.btn.btn__sort#author autor
+            button.btn.btn__sort#releaseDate dátum vydania
+            button.btn.btn__sort#createdAt dátum pridania
+        

@@ -1,0 +1,8 @@
+footer.footer
+    p.footer__copy= `Turany nad Ondavou ${new Date().getFullYear()}`
+    a.btn.btn__social(href="https://www.facebook.com/groups/982012591827574/", target="_blank") 
+        img.icon.icon__fb(src="/img/facebook.svg", alt="facebook link")
+    if user
+        button.btn.btn__logout Odhlásenie
+    else
+        button.btn.btn__login Prihlásenie

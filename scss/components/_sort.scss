@@ -1,0 +1,57 @@
+.sort {
+    display: flex;
+    width: 100%;
+    justify-self: right;
+    justify-content: flex-end;
+    align-items: center;
+    height: 10rem;
+    padding: 0 2rem;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    &__active {
+        background: $color-primary;
+        color: $color-white;
+    }
+
+    &__modal {
+        grid-column-start: 1;
+        grid-column-end: 4; 
+        background: $color-light-1;
+        width: 100%;
+        height: 10rem;
+        border-radius: 2rem;
+        position: sticky;
+        top: 0;
+    }
+
+    &__label {
+        font-size: $font-size-h4;
+        background: $color-primary;
+        color: $color-white;
+        height: 4rem;
+        width: 10rem;
+        border-radius: 2rem;
+        @include absolute-center-y;
+        left: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__select {
+        @include absolute-center-y;
+        left: 14rem;
+        background: $color-white;
+        color: $color-dark-1;
+        width: 30rem;
+        height: 4rem;
+        font-size: $font-size-h4;
+        border-radius: 2rem;
+        border: none;
+        outline: none;
+        padding-left: 2rem;
+    }
+}

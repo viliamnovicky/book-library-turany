@@ -1,0 +1,73 @@
+.modal {
+  background: rgba($color-dark-1, 0.5);
+  backdrop-filter: blur(0.2rem);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+
+  ::-webkit-scrollbar {
+    visibility:hidden !important
+  }
+
+  ::-webkit-scrollbar-track {
+    visibility:hidden !important
+  }
+
+  ::-webkit-scrollbar-thumb {
+    visibility:hidden !important
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    visibility:hidden !important
+  }
+
+  &__inner {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $color-white;
+    border-radius: 2rem;
+    padding: 2rem 0;
+
+    &--books,
+    &--stats {
+      width: 80vw;
+      height: 80vh;
+    }
+
+    &--stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding-left: 2rem;
+      grid-gap: 2rem;
+      overflow-y: scroll;
+    }
+
+    &--login {
+      width: 50vw;
+      height: 50vh;
+
+      .btn__close-modal {
+        right: calc(25vw + 2rem) !important;
+        top: calc(25vh + 2rem) !important;
+      }
+    }
+  }
+
+  &__cover-images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+}

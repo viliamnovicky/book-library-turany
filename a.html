@@ -1,0 +1,10 @@
+<a id = "${book.id}" href="/${book.slug}">
+    <img src="${book.coverImage.startsWith("http") ? book.coverImage : "/img/books/" + book.coverImage}, alt=book ${book.name} ${book.author}" alt="book" class="img img__book-cover">
+    <div class="book__cont">
+        <h3 class="book__name">${book.name}</h3>
+        <h4 class="book__author">${book.author}</h4>
+    </div>
+    <button class="btn btn__primary btn__book-details">detail</button>
+</a>
+
+<a href="./public/img/books/book-cover-J--K--Rowling-Harry-Potter-a-Kameň-mudrcov.jpeg"></a>

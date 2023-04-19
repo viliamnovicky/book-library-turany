@@ -1,0 +1,28 @@
+extends base
+
+block content      
+    main.main.main__book
+        a.btn.btn__back(href="/databaza")
+            img.img.img__svg(src="/img/svg/arrow-left.svg", alt="", srcset="")
+        .detail__cont 
+            img.img.img__book-detail(src=`${book.coverImage.startsWith("http") ? book.coverImage : "/img/books/" + book.coverImage}`, alt=`book ${book.name} ${book.author} `)
+        .detail__cont 
+            h1= book.name
+            h3= book.author
+            br
+            br
+            h4= `Rok vydania: ${book.releaseDate.getFullYear()}`
+            h4= `ISBN: ${book.ISBN}`
+        .detail__cont 
+            if user && user.role === "admin"
+                h4.detail__h4 Potrebujete doplniť alebo zmeniť údaje?
+                    button.btn.btn__primary#btn__edit-book Upraviť
+                h4.detail__h4 Kniha už viac nieje dostupná?
+                    button.btn.btn__primary#btn__delete-book Vymazať
+            else
+                if book.isAvailable === true
+                    h4.detail__h4 Radi by ste si knihu prečítali?
+                        button.btn.btn__primary#btn__rent-book Rezervovať
+                else
+                    h4.detail__h4 Túto knihu momentálne číta iný knihomoľ
+                        button.btn.btn__primary.inactive#btn__rent-book Rezervovať

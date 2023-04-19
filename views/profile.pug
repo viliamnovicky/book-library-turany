@@ -1,0 +1,43 @@
+extends base
+
+block content      
+    main.main.main__profile
+        .profile__menu
+            img.img.img__avatar(src=`/img/users/${user.photo}`)
+            h3.profile__name= user.name
+            .profile__buttons
+                button.btn.btn__profile.btn__profile--active štatistiky
+                button.btn.btn__profile nastavenia konta
+                button.btn.btn__profile Rezervované knihy
+        .profile__content 
+            .profile__stat
+                h4.profile__stat--heading Prečítané knihy
+                if user.booksRead.length > 0
+                    img.img.img__stat.img__stat--read(src="/img/books-read.png")
+                    button.btn.btn__primary#booksRead podrobnosti
+                    h4.profile__stat--data=user.booksRead.length
+                    //- each book in user.booksRead
+                    //-     h4.profile__stat--data=book.name
+                else 
+                    h4.profile__stat--no-data Nemáte prečítané žiadne knihy
+            .profile__stat
+                h4.profile__stat--heading Požičané knihy
+
+                if user.booksBorrowed.length > 0
+                    img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png")
+                    button.btn.btn__primary#booksBorrowed podrobnosti
+                    h4.profile__stat--data=user.booksBorrowed.length
+                else
+                    img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png") 
+                    h4.profile__stat--no-data Nemáte požičané žiadne knihy
+
+
+            .profile__stat
+                h4.profile__stat--heading Rezervované knihy
+                if user.booksReserved.length > 0
+                    img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
+                    button.btn.btn__primary#booksReserved podrobnosti
+                    h4.profile__stat--data=user.booksReserved.length
+                else 
+                    img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
+                    h4.profile__stat--no-data Nemáte rezervované žiadne knihy

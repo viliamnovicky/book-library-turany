@@ -1,0 +1,16 @@
+
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY( -50%);
+}
+
+.marker {
+    width: 3.2rem;
+    height: 4rem;
+    background: url("../img/pin.png") no-repeat center center/cover
+
+}

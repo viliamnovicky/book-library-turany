@@ -1,0 +1,11 @@
+.modal.hidden
+    button.btn.btn__primary.btn__close-modal ×
+    .modal__inner#modal__inner 
+        form.form.form__login
+            .form__group.form__group--login
+                label.form__label(for="login-email") Email
+                input#login-email.form__input(type="email", placeholder="Email", required)
+            .form__group.form__group--login 
+                label.form__label(for="login-password") Heslo
+                input#login-password.form__input(type="password", placeholder="********", required)
+            button.btn.btn__primary.btn__login--confirm Prihlásiť

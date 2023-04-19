@@ -1,0 +1,34 @@
+.contact {
+    position: absolute;
+    width: 30vw;
+    height: 70%;
+    top: 2rem;
+    right: 2rem;
+    background: $color-white;
+    border-radius: 2rem;
+    color: $color-dark-1;
+    animation: opacity-contact 3s forwards ease-in;
+    z-index: 2;
+
+
+    &__cont {
+        padding-left: 5rem;
+        padding-top: 2rem;
+
+        &:first-child {
+            padding-top: 5rem;
+        }
+    }
+
+    &__heading {
+       text-transform: uppercase; 
+       font-weight: 300;
+       font-size: $font-size-h3;
+       padding-bottom: .5rem;
+    }
+
+    &__paragraph {
+        font-size: $font-size-p;
+        padding-left: 1rem;
+    }
+}

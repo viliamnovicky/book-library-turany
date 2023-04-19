@@ -1,0 +1,70 @@
+.books {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: auto;
+    grid-gap: 3rem;
+}
+
+.book {
+    width: 30rem;
+    height: 40rem;
+    background: $color-white;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: .5rem .5rem .5rem rgba($color-dark-1, 0.2);
+
+    &__cont {
+        position: absolute;
+        background: rgba($color-white, 0.8);
+        width: 30rem;
+        height: 15rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        box-shadow: 1rem 1rem 1rem rgba($color-dark-1, 0.1);
+
+        .book__cont {
+            opacity: 0;
+            top: 50%;
+            transform: translateY(0%);
+        }
+
+        .btn__book-details {
+            opacity: 1;
+            outline: 20rem solid rgba($color-dark-1, 0.4);
+        }
+
+        .img__book-cover {
+            width: 100%;
+        }
+    }
+
+    &:active {
+        box-shadow: .5rem .5rem .5rem rgba($color-dark-1, 0.3);
+        margin-top: 0rem;
+    }
+
+    &__name, &__author {
+        text-align: center;
+        color: $color-dark-1;
+    }
+
+    &__name {
+        padding-top: 2rem;
+        font-weight: 200;
+    }
+
+    &__author {
+        font-weight: 200;
+    }
+}
