@@ -9,13 +9,13 @@
 ::selection {
     color: $color-white;
     background: $color-primary;
-  }
+}
 
 html {
     font-size: 62.5%;
     overflow-x: hidden;
     overflow-y: scroll;
-  }
+}
 
 body {
     width: 100%;
@@ -57,7 +57,22 @@ h4 {
     &__no-space {
         position: absolute;
     }
+
+    &__profile--stats {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        left: -100% !important;
+        width: 0% !important;
+    }
+
+    &__profile--settings {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        left: 100% !important;
+        width: 0% !important;
+    }
 }
+
 
 .opacity__full {
     opacity: 1 !important;
@@ -66,4 +81,8 @@ h4 {
 .inactive {
     opacity: .5 !important;
     pointer-events: none;
+}
+
+.flipY {
+    animation: flipY 1s forwards;
 }

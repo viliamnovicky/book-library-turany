@@ -6,38 +6,60 @@ block content
             img.img.img__avatar(src=`/img/users/${user.photo}`)
             h3.profile__name= user.name
             .profile__buttons
-                button.btn.btn__profile.btn__profile--active štatistiky
-                button.btn.btn__profile nastavenia konta
-                button.btn.btn__profile Rezervované knihy
+                button.btn.btn__profile.btn__profile--active#btn-profile-stats štatistiky
+                button.btn.btn__profile#btn-profile-settings nastavenia konta
         .profile__content 
-            .profile__stat
-                h4.profile__stat--heading Prečítané knihy
-                if user.booksRead.length > 0
-                    img.img.img__stat.img__stat--read(src="/img/books-read.png")
-                    button.btn.btn__primary#booksRead podrobnosti
-                    h4.profile__stat--data=user.booksRead.length
-                    //- each book in user.booksRead
-                    //-     h4.profile__stat--data=book.name
-                else 
-                    h4.profile__stat--no-data Nemáte prečítané žiadne knihy
-            .profile__stat
-                h4.profile__stat--heading Požičané knihy
+            .profile__content--cont.profile__stats
+                .profile__stat
+                    h4.profile__stat--heading Prečítané knihy
+                    
+                    if user.booksRead.length > 0
+                        img.img.img__stat.img__stat--read(src="/img/books-read.png")
+                        button.btn.btn__primary.btn__show-stat#booksRead podrobnosti
+                        h4.profile__stat--data=user.booksRead.length
+                    else 
+                        h4.profile__stat--no-data Nemáte prečítané žiadne knihy
+                .profile__stat
+                    h4.profile__stat--heading Požičané knihy
 
-                if user.booksBorrowed.length > 0
-                    img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png")
-                    button.btn.btn__primary#booksBorrowed podrobnosti
-                    h4.profile__stat--data=user.booksBorrowed.length
-                else
-                    img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png") 
-                    h4.profile__stat--no-data Nemáte požičané žiadne knihy
+                    if user.booksBorrowed.length > 0
+                        img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png")
+                        button.btn.btn__primary.btn__show-stat#booksBorrowed podrobnosti
+                        h4.profile__stat--data=user.booksBorrowed.length
+                    else
+                        img.img.img__stat.img__stat--borrowed(src="/img/books-borrowed.png") 
+                        h4.profile__stat--no-data Nemáte požičané žiadne knihy
 
-
-            .profile__stat
-                h4.profile__stat--heading Rezervované knihy
-                if user.booksReserved.length > 0
-                    img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
-                    button.btn.btn__primary#booksReserved podrobnosti
-                    h4.profile__stat--data=user.booksReserved.length
-                else 
-                    img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
-                    h4.profile__stat--no-data Nemáte rezervované žiadne knihy
+                .profile__stat
+                    h4.profile__stat--heading Rezervované knihy
+                    
+                    if user.booksReserved.length > 0
+                        img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
+                        button.btn.btn__primary.btn__show-stat#booksReserved podrobnosti
+                        h4.profile__stat--data=user.booksReserved.length
+                    else 
+                        img.img.img__stat.img__stat--reserved(src="/img/books-reserved.png")
+                        h4.profile__stat--no-data Nemáte rezervované žiadne knihy
+            .profile__content--cont.profile__settings.hidden__profile--settings
+                .profile__stat
+                    h4.profile__stat--heading Profilová fotografia
+                    p.profile__paragraph Vyberte novú fotografiu
+                    input.hidden.hidden__no-space(type="file" id="uploadAvatar" name="filename")
+                    button.btn.btn__primary.btn__avatar.btn__load-new-avatar Nahrať
+                    p.profile__paragraph Uložte novú fotografiu
+                    button.btn.btn__primary.btn__avatar.btn__save-new-avatar Uložiť
+                .profile__stat
+                    h4.profile__stat--heading Zmena hesla
+                    form.form.form__change-password
+                        .form__group.form__group--change-password 
+                            label.form__label(for="change-password__old") Staré heslo
+                            input#change-password__old.form__input(type="password", placeholder="********", required)
+                        .form__group.form__group--change-password 
+                            label.form__label(for="change-password__new") Nové heslo
+                            input#change-password__new.form__input(type="password", placeholder="********", required)
+                        .form__group.form__group--change-password 
+                            label.form__label(for="change-password__confirm") Potvrďte nové heslo
+                            input#change-password__confirm.form__input(type="password", placeholder="********", required)
+                        button.btn.btn__primary.btn__change-password Zmeniť heslo
+                    
+            

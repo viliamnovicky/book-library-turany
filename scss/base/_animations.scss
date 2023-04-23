@@ -2,3 +2,8 @@
     from {opacity: 0}
     to {opacity: 1}
   }
+
+@keyframes flipY {
+  from {transform: rotateX(0deg)}
+  to {transform: rotateX(360deg)}
+}

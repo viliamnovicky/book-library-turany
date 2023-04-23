@@ -60,12 +60,21 @@
     }
 
     &__login {
-        left: 50%;
-        transform: translate(-50%, -50%);
-        //text-align: center;
+        @include absolute-center;
         background: $color-light-2;
         padding: 5rem 10rem;
         border-radius: 2rem;
+    }
+
+    &__change-password {
+        @include absolute-center;
+        background: $color-light-2;
+        border-radius: 2rem;
+
+        button {
+            margin: auto;
+            margin-top: 5rem;
+        }
     }
 
     &__search-database {

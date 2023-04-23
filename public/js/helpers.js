@@ -24,6 +24,10 @@ export const openDialog = () => {
   document.getElementById('uploadPhoto').click();
 };
 
+export const openDialogI = () => {
+  document.getElementById('uploadAvatar').click();
+};
+
 export const getFilterValues = () => {
   const author = document.getElementById("database-author").value
   const name = document.getElementById("database-name").value

@@ -6,9 +6,9 @@ import { login, logout } from './authorisation';
 import { searchBook } from './searchBook';
 import { createBook } from './createBook';
 import { getCurrentUserData } from './getCurrentUserData';
-import {loadFilteredBooks} from "./models/bookModel"
-import {loadUserStats} from "./models/userModel"
-import { showAllSearchFields, resetSearchedData, openDialog } from './helpers';
+import { loadFilteredBooks } from "./models/bookModel"
+import { loadUserStats } from "./models/userModel"
+import { showAllSearchFields, resetSearchedData, openDialog, openDialogI } from './helpers';
 
 headerLinkController()
 getCurrentUserData()
@@ -20,7 +20,7 @@ const modalInner = document.querySelector('.modal__inner');
 const btnCloseModal = document.querySelector(".btn__close-modal")
 
 document.querySelector(".img__arma").addEventListener("click", () => {
-  if(!document.querySelector(".img__people"))  
+  if (!document.querySelector(".img__people"))
     location.assign('/')
 })
 
@@ -102,18 +102,18 @@ if (document.querySelector('.form__new-book')) {
 // SORT BOOK DATABASE
 if (document.querySelector(".sort")) {
   const sortCont = (document.querySelector(".sort"))
-  
-  sortCont.addEventListener("click", function(e) {
 
-    if(e.target.closest(".btn__sort")) {
+  sortCont.addEventListener("click", function (e) {
+
+    if (e.target.closest(".btn__sort")) {
       const buttons = document.querySelectorAll(".btn__sort")
       const button = e.target.closest(".btn__sort")
       const author = document.getElementById("database-author").value
       const name = document.getElementById("database-name").value
-        
+
       buttons.forEach(btn => btn.classList.remove("sort__active"))
       button.classList.add("sort__active")
-      
+
       loadFilteredBooks(button.id, name, author)
     }
 
@@ -142,11 +142,11 @@ if (document.querySelector('.btn__login')) {
     modalInner.classList.add('modal__inner--login');
     modal.classList.remove('hidden');
     btnCloseModal.classList.add("btn__close-modal--login")
-  
+
   });
 }
 
-document.querySelector('.btn__login--confirm').addEventListener("click", function(e) {
+document.querySelector('.btn__login--confirm').addEventListener("click", function (e) {
   e.preventDefault()
   const email = document.getElementById("login-email").value
   const password = document.getElementById("login-password").value
@@ -155,9 +155,43 @@ document.querySelector('.btn__login--confirm').addEventListener("click", functio
 
 // LOGOUT
 if (document.querySelector('.btn__logout'))
-  document.querySelector('.btn__logout').addEventListener("click", function(e) {
+  document.querySelector('.btn__logout').addEventListener("click", function (e) {
     logout()
   })
 
 // MAP
 if (document.getElementById('map')) displayMap();
+
+// PROFILE
+if (document.querySelectorAll("btn__profile")) {
+  const btnProfileStats = document.getElementById("btn-profile-stats")
+  const btnProfileSettings = document.getElementById("btn-profile-settings")
+  const profileStatsCont = document.querySelector(".profile__stats")
+  const profileSettingsCont = document.querySelector(".profile__settings")
+
+  btnProfileStats.addEventListener("click", function (e) {
+    e.preventDefault()
+    console.log("do ")
+    profileStatsCont.classList.remove("hidden__profile--stats")
+    profileSettingsCont.classList.add("hidden__profile--settings")
+    btnProfileStats.classList.add("btn__profile--active")
+    btnProfileSettings.classList.remove("btn__profile--active")
+  })
+
+  btnProfileSettings.addEventListener("click", function (e) {
+    e.preventDefault()
+    profileStatsCont.classList.add("hidden__profile--stats")
+    profileSettingsCont.classList.remove("hidden__profile--settings")
+    btnProfileStats.classList.remove("btn__profile--active")
+    btnProfileSettings.classList.add("btn__profile--active")
+    console.log("do ")
+  })
+}
+
+// UPLOADING IMAGE
+if (document.querySelector('.btn__load-new-avatar'))
+  document.querySelector('.btn__load-new-avatar').addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log("sdasdf")
+    openDialogI();
+  });
