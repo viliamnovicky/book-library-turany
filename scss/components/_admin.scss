@@ -1,0 +1,81 @@
+.admin {
+    &__info {
+        width: calc(100% - 4rem);
+        height: 10rem;
+        background: $color-white;
+        margin: auto;
+        border-radius: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        cursor: pointer;
+    
+        &:hover {
+            background: $color-light-1;
+        }
+    
+        .img__avatar {
+            width: 5rem;
+            height: 5rem;
+            margin: 0;
+        }
+    
+        .img__book {
+            width: 5rem;
+            height: 5rem;
+            margin: 0;
+            border-radius: 1rem;
+            position: relative;
+        }
+    }
+
+    &__book-info {
+        padding: 2rem;
+        width: 100%;
+        text-align: left;
+        position: relative;
+
+        span {
+            position: absolute;
+            right: 2rem;
+        }
+    }
+
+    &__search-book {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        margin: auto;
+    }
+
+    &__content {
+
+        &--books {
+            grid-template-columns: 1.5fr 1.5fr 1fr !important;
+
+            .img__admin-book-info {
+                position: absolute;
+                bottom: 2rem;
+                right: 2rem;
+                border-radius: 2rem;
+                opacity: .5;
+                height: 40%
+            }
+        }
+
+    }
+
+    &__action-buttons {
+        @include absolute-center;
+        text-align: center;
+
+        #btn__edit-book {
+            margin-bottom: 10rem;
+        }
+    } 
+
+}

@@ -35,3 +35,16 @@ export const getFilterValues = () => {
 
   return author, name, filter
 }
+
+export const hideModal = () => {
+  const modal = document.querySelector('.modal');
+  const modalInner = document.querySelector('.modal__inner');
+  const btnCloseModal = document.querySelector(".btn__close-modal")
+  modal.classList.add('hidden');
+    modalInner.classList.remove('modal__inner--login');
+    modalInner.classList.remove('modal__inner--books');
+    btnCloseModal.classList.remove("btn__close-modal--books")
+    btnCloseModal.classList.remove("btn__close-modal--login")
+    modalInner.classList.remove("modal__inner--confirm")
+    btnCloseModal.classList.remove("btn__close-modal--confirm")
+}

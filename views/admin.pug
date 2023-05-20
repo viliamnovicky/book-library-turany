@@ -1,0 +1,47 @@
+extends base
+
+block content      
+    main.main.main__profile
+        input.hidden.hidden__no-space(type="file" id="uploadAvatar" name="filename")
+        .profile__menu
+            img.img.img__avatar(src=`/img/users/${user.photo}`)
+            h3.profile__name admin
+            .profile__buttons
+                button.btn.btn__profile.btn__profile--active#btn-profile-stats správa knižnice
+                button.btn.btn__profile#btn-profile-settings knihomoli
+        .profile__content
+            .profile__content--cont.profile__stats.admin__content.admin__content--books 
+                .profile__stat#book-list
+                    .admin__search-book
+                        h4.profile__stat--heading Správa kníh
+                        input.form__input(type="text" id="admin-search-book" placeholder="vyhľadať knihu")
+                        button.btn.btn__admin-search
+                            img.img.img__svg(src="./img/svg/search.svg", alt="", srcset="")
+                    each book in books 
+                        .admin__info.admin__info--book(id= `${book.id}`)
+                            h4= book.name 
+                            img.img.img__book(src=`${book.coverImage.startsWith("http") ? book.coverImage : "/img/books/" + book.coverImage}`, alt=`book ${book.name} ${book.author}`)
+                .profile__stat#book-info       
+
+                .profile__stat.profile__stat--actions#book-actions
+                     
+            .profile__content--cont.profile__settings.hidden__profile--settings#admin-users
+                .profile__stat
+                    h4.profile__stat--heading Správa knihomoľov
+                    each user in users 
+                        .admin__info.admin__info--user
+                            h4= user.name 
+                            img.img.img__avatar(src=`/img/users/${user.photo}`)
+                    
+                .profile__stat
+                    h4.profile__stat--heading Registrácia nového knihomoľa
+                    form.form.form__register
+                        .form__group.form__group--register
+                            label.form__label(for="change-password__old") Meno a priezvisko
+                            input#change-password__old.form__input(type="name", placeholder="Janko Mrkvička", required)
+                        .form__group.form__group--register
+                            label.form__label(for="change-password__new") Email
+                            input#change-password__new.form__input(type="email", placeholder="janko.mrkvicka@gmail.com", required)
+                        button.btn.btn__primary.btn__register Zaregistrovať
+                    
+            

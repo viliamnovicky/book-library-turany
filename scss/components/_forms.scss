@@ -56,7 +56,8 @@
         border: none;
         outline: none;
         border-radius: 1rem;
-        width: 25rem
+        width: 25rem;
+        z-index: 10000;
     }
 
     &__login {
@@ -66,7 +67,8 @@
         border-radius: 2rem;
     }
 
-    &__change-password {
+    &__change-password,
+    &__register {
         @include absolute-center;
         background: $color-light-2;
         border-radius: 2rem;
@@ -76,6 +78,8 @@
             margin-top: 5rem;
         }
     }
+
+
 
     &__search-database {
         display: flex;

@@ -13,9 +13,23 @@
   cursor: pointer;
   box-shadow: 0.5rem 0.5rem 0.5rem rgba($color-dark-1, 0.2);
 
+  &__admin-search {
+    width: 4rem;
+    box-shadow: none;
+    background: $color-white;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
   &__primary {
     background: $color-primary;
     color: $color-white;
+  }
+
+  &__red {
+    background: red;
   }
 
   &__search-img {
@@ -40,6 +54,11 @@
     &--login {
       right: calc(25vw + 2rem) !important;
       top: calc(25vh + 2rem) !important;
+    }
+
+    &--confirm {
+      right: calc(30vw + 2rem) !important;
+      top: calc(30vh + 2rem) !important;
     }
   }
 
@@ -118,6 +137,10 @@
   &__sort {
     background: $color-light-2;
     color: $color-dark-1;
+
+    &--arrow {
+      width: 4rem !important;
+    }
   }
 }
 

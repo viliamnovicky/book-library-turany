@@ -13,7 +13,7 @@ exports.getDatabase = catchAsync(async (req, res, next) => {
   const books = await Book.find().sort('name');
 
   res.status(200).render('books', {
-    title: 'Knižnica Turany nad Ondavou',
+    title: 'Databáza kníh',
     currentUrl: req.url,
     books,
   });
@@ -41,6 +41,16 @@ exports.getBookPage = catchAsync(async (req, res, next) => {
 
   res.status(200).render('book', {
     book,
+  });
+});
+
+exports.getAdminPage = catchAsync(async (req, res, next) => {
+  const users = await User.find({role: "user"}).sort("name")
+  const books = await Book.find().sort("name")
+  res.status(200).render('admin', {
+    title: 'Admin',
+    users,
+    books
   });
 });
 

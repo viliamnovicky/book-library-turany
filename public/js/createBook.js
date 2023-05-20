@@ -10,8 +10,11 @@ export const createBook = async (data) => {
     });
     if (res.data.status === 'success')
       showAlert('success', 'Kniha úspešne pridaná do databázy', 5);
+      window.setTimeout(() => {
+        location.assign('/nova-kniha');
+      }, 500);
   } catch (err) {
-    err.response.data.error.code = 11000 ? console.log('1') : console.log('2');
+    
     showAlert('error', 'Kniha už je v databáze', 5);
   }
 };

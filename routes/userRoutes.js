@@ -11,7 +11,15 @@ router.post("/logout", authController.logout)
 // Protected routes
 router.use(authController.protect);
 router.get("/me", userController.getMe, userController.getUser)
-router.get("/updateMe", userController.getMe, userController.updateUser)
+
+router.patch(
+    '/updateMe',
+    userController.uploadUserPhoto,
+    userController.resizeUserPhoto,
+    userController.updateMe
+);
+
 router.get("/me/userBooks", userController.getUsersSortedBooks)
+router.patch("/updatePassword", authController.updatePassword)
 
 module.exports = router

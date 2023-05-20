@@ -2,6 +2,7 @@ extends base
 
 block content      
     main.main.main__profile
+        input.hidden.hidden__no-space(type="file" id="uploadAvatar" name="filename")
         .profile__menu
             img.img.img__avatar(src=`/img/users/${user.photo}`)
             h3.profile__name= user.name
@@ -44,10 +45,9 @@ block content
                 .profile__stat
                     h4.profile__stat--heading Profilová fotografia
                     p.profile__paragraph Vyberte novú fotografiu
-                    input.hidden.hidden__no-space(type="file" id="uploadAvatar" name="filename")
                     button.btn.btn__primary.btn__avatar.btn__load-new-avatar Nahrať
                     p.profile__paragraph Uložte novú fotografiu
-                    button.btn.btn__primary.btn__avatar.btn__save-new-avatar Uložiť
+                    button.btn.btn__primary.btn__avatar.btn__save-new-avatar.inactive Uložiť
                 .profile__stat
                     h4.profile__stat--heading Zmena hesla
                     form.form.form__change-password

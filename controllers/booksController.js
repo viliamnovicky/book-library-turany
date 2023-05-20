@@ -61,24 +61,5 @@ exports.createBook = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllBooks = factory.getAll(Book);
-
-exports.getAllBooksI = catchAsync(async (req, res, next) => {
-  const searchField = req.query.field;
-  const searchQuery = req.query.query;
-  const regex = new RegExp(searchQuery, 'i');
-  const searchCriteria = {};
-  searchCriteria[searchField] = regex;
-  const books = await Book.find(searchCriteria);
-  console.log(req.query.query);
-  console.log(req.query.field);
-
-  res.status(200).json({
-    title: 'success',
-    results: books.length,
-    data: {
-      books,
-    },
-  });
-});
-
 exports.getOneBook = factory.getOne(Book);
+exports.deleteBook = factory.deleteOne(Book)

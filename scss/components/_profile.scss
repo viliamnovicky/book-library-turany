@@ -10,6 +10,7 @@
         padding-top: 3rem;
         position: relative;
         z-index: 1000;
+        outline: 2rem solid $color-light-2;
     }
 
     &__content {
@@ -19,6 +20,7 @@
         background: $color-white;
         border-radius: 2rem;
         position: relative;
+        overflow: hidden;
 
         &--cont {
             width: 100%;
@@ -40,7 +42,7 @@
 
     }
 
-    &__settings{
+    &__settings {
         grid-template-columns: 1fr 2fr;
         left: 0;
         width: 100%;
@@ -68,6 +70,13 @@
         position: relative;
         background: $color-light-2;
         border-radius: 2rem;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+          }
 
         .btn__show-stat {
             @include absolute-center;
@@ -81,6 +90,7 @@
         &--heading {
             text-align: center;
             padding-top: 2rem;
+            padding-bottom: 2rem;
             text-transform: uppercase;
         }
 
@@ -101,4 +111,8 @@
             text-align: center;
         }
     }
+}
+
+#admin-users {
+    grid-template-columns: 1fr 1fr;
 }

@@ -16,9 +16,9 @@ block content
         .detail__cont 
             if user && user.role === "admin"
                 h4.detail__h4 Potrebujete doplniť alebo zmeniť údaje?
-                    button.btn.btn__primary#btn__edit-book Upraviť
+                    button.btn.btn__primary#btn__edit-book(data-id=book.id) Upraviť
                 h4.detail__h4 Kniha už viac nieje dostupná?
-                    button.btn.btn__primary#btn__delete-book Vymazať
+                    button.btn.btn__primary#btn__delete-book(data-id=book.id) Vymazať
             else
                 if book.isAvailable === true
                     h4.detail__h4 Radi by ste si knihu prečítali?

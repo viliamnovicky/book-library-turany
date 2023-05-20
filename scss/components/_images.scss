@@ -9,7 +9,7 @@
   &__avatar {
     width: 10rem;
     border-radius: 50%;
-    border: 1rem solid transparent;
+    border: 1px solid transparent;
     outline: 1rem solid $color-primary;
     margin-bottom: 2rem;
   }
@@ -21,6 +21,12 @@
     left: 5rem;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  &__confirm {
+    @include absolute-center;
+    height: 55%;
+    pointer-events: none;
   }
 
   &__hands {
@@ -106,6 +112,7 @@
   }
 
   &__svg {
+    background: none;
     width: 3rem;
     height: 3rem;
     filter: invert(32%) sepia(96%) saturate(1832%) hue-rotate(133deg)

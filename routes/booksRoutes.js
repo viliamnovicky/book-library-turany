@@ -13,10 +13,14 @@ router
     booksController.uploadBookCoverPhoto,
     booksController.resizeBookCoverPhoto,
     booksController.createBook,
-  );
+  )
 
-  router
+router
   .route('/:id')
   .get(booksController.getOneBook)
+  .delete(
+    authController.protect,
+    authController.restrictTo("admin"),
+    booksController.deleteBook)
 
 module.exports = router;

@@ -52,6 +52,11 @@
       overflow-y: scroll;
     }
 
+    &--confirm {
+      width: 40vw;
+      height: 40vh;
+    }
+
     &--login {
       width: 50vw;
       height: 50vh;
@@ -69,5 +74,23 @@
     justify-content: center;
     align-items: center;
     position: relative;
+  }
+
+  &__confirm {
+
+    &--heading {
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    &--buttons {
+      @include absolute-center-x;
+      bottom: 2rem;
+      width: 30rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
