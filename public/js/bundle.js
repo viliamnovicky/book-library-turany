@@ -12053,7 +12053,7 @@ exports.showAlert = showAlert;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updatePassword = exports.logout = exports.login = void 0;
+exports.updatePassword = exports.signup = exports.logout = exports.login = void 0;
 var _axios = _interopRequireDefault(require("axios"));
 var _alerts = require("./alerts");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -12102,8 +12102,8 @@ var login = /*#__PURE__*/function () {
   };
 }();
 exports.login = login;
-var logout = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+var signup = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(name, email, password, passwordConfirm) {
     var res;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
@@ -12111,15 +12111,21 @@ var logout = /*#__PURE__*/function () {
           _context2.prev = 0;
           _context2.next = 3;
           return (0, _axios.default)({
-            method: 'POST',
-            url: '/api/v1/users/logout'
+            method: "POST",
+            url: "api/v1/users/signup",
+            data: {
+              name: name,
+              email: email,
+              password: password,
+              passwordConfirm: passwordConfirm
+            }
           });
         case 3:
           res = _context2.sent;
-          if (res.data.status === 'success') {
-            (0, _alerts.showAlert)('success', 'Odhlásenie prebehlo úspešne');
+          if (res.data.status === "success") {
+            (0, _alerts.showAlert)('success', "Registračný email bol úspešne odoslaný");
             window.setTimeout(function () {
-              location.assign('/');
+              location.assign('/admin');
             }, 500);
           }
           _context2.next = 10;
@@ -12127,26 +12133,63 @@ var logout = /*#__PURE__*/function () {
         case 7:
           _context2.prev = 7;
           _context2.t0 = _context2["catch"](0);
-          (0, _alerts.showAlert)('error', 'Nepodarilo sa odhlásiť');
+          (0, _alerts.showAlert)('error', "Niečo sa nepodarilo");
         case 10:
         case "end":
           return _context2.stop();
       }
     }, _callee2, null, [[0, 7]]);
   }));
-  return function logout() {
+  return function signup(_x3, _x4, _x5, _x6) {
     return _ref2.apply(this, arguments);
   };
 }();
-exports.logout = logout;
-var updatePassword = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(passwordCurrent, password, passwordConfirm) {
+exports.signup = signup;
+var logout = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
     var res;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
           _context3.prev = 0;
           _context3.next = 3;
+          return (0, _axios.default)({
+            method: 'POST',
+            url: '/api/v1/users/logout'
+          });
+        case 3:
+          res = _context3.sent;
+          if (res.data.status === 'success') {
+            (0, _alerts.showAlert)('success', 'Odhlásenie prebehlo úspešne');
+            window.setTimeout(function () {
+              location.assign('/');
+            }, 500);
+          }
+          _context3.next = 10;
+          break;
+        case 7:
+          _context3.prev = 7;
+          _context3.t0 = _context3["catch"](0);
+          (0, _alerts.showAlert)('error', 'Nepodarilo sa odhlásiť');
+        case 10:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3, null, [[0, 7]]);
+  }));
+  return function logout() {
+    return _ref3.apply(this, arguments);
+  };
+}();
+exports.logout = logout;
+var updatePassword = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(passwordCurrent, password, passwordConfirm) {
+    var res;
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
+        case 0:
+          _context4.prev = 0;
+          _context4.next = 3;
           return (0, _axios.default)({
             method: "PATCH",
             url: '/api/v1/users/updatePassword',
@@ -12157,27 +12200,27 @@ var updatePassword = /*#__PURE__*/function () {
             }
           });
         case 3:
-          res = _context3.sent;
+          res = _context4.sent;
           if (res.data.status === 'success') {
             (0, _alerts.showAlert)("success", "Zmena hesla prebehla úspešne");
             window.setTimeout(function () {
               location.assign('/profil');
             }, 500);
           }
-          _context3.next = 10;
+          _context4.next = 10;
           break;
         case 7:
-          _context3.prev = 7;
-          _context3.t0 = _context3["catch"](0);
-          (0, _alerts.showAlert)("error", _context3.t0.response.data.message);
+          _context4.prev = 7;
+          _context4.t0 = _context4["catch"](0);
+          (0, _alerts.showAlert)("error", _context4.t0.response.data.message);
         case 10:
         case "end":
-          return _context3.stop();
+          return _context4.stop();
       }
-    }, _callee3, null, [[0, 7]]);
+    }, _callee4, null, [[0, 7]]);
   }));
-  return function updatePassword(_x3, _x4, _x5) {
-    return _ref3.apply(this, arguments);
+  return function updatePassword(_x7, _x8, _x9) {
+    return _ref4.apply(this, arguments);
   };
 }();
 exports.updatePassword = updatePassword;
@@ -12966,6 +13009,17 @@ if (document.querySelector('.btn__login--confirm')) document.querySelector('.btn
   (0, _authorisation.login)(email, password);
 });
 
+// REGISTER 
+if (document.getElementById("btn-register")) {
+  document.getElementById("btn-register").addEventListener("click", function () {
+    var name = document.getElementById("register-name").value;
+    var email = document.getElementById("register-email").value;
+    var password = Math.random().toString(36).slice(-8);
+    var passwordConfirm = password;
+    (0, _authorisation.signup)(name, email, password, passwordConfirm);
+  });
+}
+
 // LOGOUT
 if (document.querySelector('.btn__logout')) document.querySelector('.btn__logout').addEventListener("click", function (e) {
   (0, _authorisation.logout)();
@@ -13076,7 +13130,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56968" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63387" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

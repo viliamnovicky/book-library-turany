@@ -45,7 +45,7 @@ exports.getBookPage = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminPage = catchAsync(async (req, res, next) => {
-  const users = await User.find({role: "user"}).sort("name")
+  const users = await User.find({ role: "user" }).sort("name")
   const books = await Book.find().sort("name")
   res.status(200).render('admin', {
     title: 'Admin',
@@ -59,3 +59,10 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
     title: 'Profil',
   });
 });
+
+exports.getRegisterPage = catchAsync(async (req, res, next) => {
+  res.status(200).render("register", {
+    currentUrl: req.url,
+    title: "Dokončenie registrácie"
+  })
+})

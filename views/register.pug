@@ -1,0 +1,16 @@
+extends base
+
+block content
+    main.main
+        form.form.form__register
+            .form__group.form__group--register
+                label.form__label Meno
+                p.register__data Viliam Novický
+                label.form__label Email
+                p.register__data viliamnovicky@gmail.com
+                label.form__label(for="change-password__old") Zadajte heslo
+                input#change-password__old.form__input(type="name", placeholder="********", required)
+            .form__group.form__group--register
+                label.form__label(for="change-password__new") Zopakujte heslo
+                input#change-password__new.form__input(type="email", placeholder="********", required)
+            button.btn.btn__primary.btn__register#btn-register Zaregistrovať

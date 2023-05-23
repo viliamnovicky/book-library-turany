@@ -25,6 +25,31 @@ export const login = async (email, password) => {
   }
 };
 
+export const signup = async (name, email, password, passwordConfirm) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: "api/v1/users/signup",
+      data: {
+        name,
+        email,
+        password,
+        passwordConfirm
+      }
+    })
+
+    if(res.data.status === "success") {
+      showAlert('success', "Registračný email bol úspešne odoslaný")
+      window.setTimeout(() => {
+        location.assign('/admin');
+      }, 500);
+    }
+
+  } catch (err) {
+    showAlert('error', "Niečo sa nepodarilo")
+  }
+}
+
 export const logout = async () => {
   try {
     const res = await axios({
@@ -59,7 +84,7 @@ export const updatePassword = async (passwordCurrent, password, passwordConfirm)
         location.assign('/profil');
       }, 500);
     }
-  } catch(err) {
+  } catch (err) {
     showAlert("error", err.response.data.message)
   }
 }

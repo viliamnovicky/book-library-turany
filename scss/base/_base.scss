@@ -49,6 +49,11 @@ h4 {
     font-weight: 400;
 }
 
+p {
+    font-size: $font-size-p;
+    font-weight: 400;
+}
+
 .hidden {
     opacity: 0 !important;
     visibility: hidden !important;

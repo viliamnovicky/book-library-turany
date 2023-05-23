@@ -2,17 +2,18 @@ header.header
     img.img__arma(src="/img/erb.png", alt="logo obce")
     h1.header__heading Knižnica Turany nad Ondavou
     nav.nav 
-        if user && user.role === "admin"
-            a.nav__el(href="/databaza" id="databaza")  Naše knihy
-            a.nav__el(href="/nova-kniha" id="nova-kniha") Pridať knihu
-            a.nav__el(href="/admin" id="admin") Admin
-        else if user && user.role === "user"
-            a.nav__el(href="/databaza" id="databaza")  Naše knihy
-            a.nav__el(href="/kontakt" id="kontakt") Kontakt
-            a.nav__el(href="/profil" id="profil") Profil
-        else
-            a.nav__el(href="/databaza" id="databaza")  Naše knihy
-            a.nav__el(href="/kontakt" id="kontakt") Kontakt
+        if currentUrl != "/registracia"
+            if user && user.role === "admin"
+                a.nav__el(href="/databaza" id="databaza")  Naše knihy
+                a.nav__el(href="/nova-kniha" id="nova-kniha") Pridať knihu
+                a.nav__el(href="/admin" id="admin") Admin
+            else if user && user.role === "user"
+                a.nav__el(href="/databaza" id="databaza")  Naše knihy
+                a.nav__el(href="/kontakt" id="kontakt") Kontakt
+                a.nav__el(href="/profil" id="profil") Profil
+            else
+                a.nav__el(href="/databaza" id="databaza")  Naše knihy
+                a.nav__el(href="/kontakt" id="kontakt") Kontakt
 if currentUrl  === "/databaza"
     .actions
         .search 
@@ -27,4 +28,5 @@ if currentUrl  === "/databaza"
             button.btn.btn__sort#author autor
             button.btn.btn__sort#releaseDate dátum vydania
             button.btn.btn__sort#createdAt dátum pridania
+
         

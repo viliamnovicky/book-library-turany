@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import { displayMap } from './mapbox';
 
 import { headerLinkController } from './headerLinksController';
-import { login, logout, updatePassword } from './authorisation';
+import { login, signup, logout, updatePassword } from './authorisation';
 import { searchBook } from './searchBook';
 import { createBook } from './createBook';
 import { getCurrentUserData } from './getCurrentUserData';
@@ -170,6 +170,17 @@ if (document.querySelector('.btn__login--confirm'))
     const password = document.getElementById("login-password").value
     login(email, password)
   })
+
+// REGISTER 
+if(document.getElementById("btn-register")) {
+  document.getElementById("btn-register").addEventListener("click", () => {
+    const name = document.getElementById("register-name").value
+    const email = document.getElementById("register-email").value
+    const password = Math.random().toString(36).slice(-8);
+    const passwordConfirm = password
+    signup(name, email, password, passwordConfirm)
+  })
+}
 
 // LOGOUT
 if (document.querySelector('.btn__logout'))

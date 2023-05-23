@@ -35,6 +35,7 @@ const createSendToken = (user, statusCode, req, res) => {
   });
 };
 
+
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
@@ -43,11 +44,15 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm
   });
 
-  //const url = `${req.protocol}://${req.get('host')}/me`;
-  // console.log(url);
-  //await new Email(newUser, url).sendWelcome();
+  const url = `${req.protocol}://${req.get('host')}/registracia`;
+  console.log(url);
+  await new Email(newUser, url).sendRegisterConfirm();
 
-  createSendToken(newUser, 201, req, res);
+  res.status(200).json({
+    status: "success"
+  })
+
+  //createSendToken(newUser, 201, req, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -170,7 +175,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on POSTed email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return next(new AppError('There is no user with email address.', 404));
+    return next(new AppError('Užívateľ s touto emailovou adresou neexistuje.', 404));
   }
 
   // 2) Generate the random reset token
@@ -186,7 +191,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
       status: 'success',
-      message: 'Token sent to email!'
+      message: 'Token bol odoslaný na email!'
     });
   } catch (err) {
     user.passwordResetToken = undefined;
@@ -194,7 +199,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     return next(
-      new AppError('There was an error sending the email. Try again later!'),
+      new AppError('Pri odosielaní emailu nastala chyba. Skúste to prosím znova.'),
       500
     );
   }
@@ -214,7 +219,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
   // 2) If token has not expired, and there is user, set the new password
   if (!user) {
-    return next(new AppError('Token is invalid or has expired', 400));
+    return next(new AppError('Token je neplatný.', 400));
   }
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;
@@ -236,7 +241,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     !user ||
     !(await user.correctPassword(req.body.passwordCurrent, user.password))
   ) {
-    return next(new AppError('Your current password is wrong', 400));
+    return next(new AppError('Zadali ste zlé aktuálne heslo', 400));
   }
 
   // 3) If so, update password

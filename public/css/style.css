@@ -49,6 +49,11 @@ h4 {
   font-weight: 400;
 }
 
+p {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
 .hidden {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -501,6 +506,7 @@ h4 {
 /* width */
 ::-webkit-scrollbar {
   width: 1vw;
+  display: none;
 }
 
 /* Track */
@@ -1244,6 +1250,18 @@ h4 {
 }
 .admin__action-buttons #btn__edit-book {
   margin-bottom: 10rem;
+}
+
+.register__data {
+  background: #ffff9d;
+  width: 25rem;
+  height: 4rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */

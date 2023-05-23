@@ -1,0 +1,13 @@
+.register {
+    &__data {
+        background: $color-light-1;
+        width: 25rem;
+        height: 4rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        margin-bottom: 2rem;
+        pointer-events: none;
+    }
+}
