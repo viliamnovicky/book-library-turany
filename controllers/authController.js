@@ -52,7 +52,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     status: "success"
   })
 
-  //createSendToken(newUser, 201, req, res);
+  createSendToken(newUser, 201, req, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
